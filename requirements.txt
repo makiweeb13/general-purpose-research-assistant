@@ -1,0 +1,6 @@
+unstructured
+langchain
+langchain-community
+lxml
+beautifulsoup4
+langchain-text-splitters
