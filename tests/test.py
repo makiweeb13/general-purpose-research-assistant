@@ -5,6 +5,7 @@ from core.retrieval.vector_store import VectorDB
 from core.retrieval.embedder import Embedder
 from core.retrieval.retriever import Retriever
 from core.llm.prompt import build_prompt
+from core.llm.llama_client import LlamaClient
 
 # temporary urls
 urls = [
@@ -61,3 +62,6 @@ prompt = build_prompt(context, query)
 print(f"\nGenerated Prompt:\n{prompt}")
 print(f"Context length: {len(context)} characters")
 print(f"Number of chunks retrieved: {chunks_len}")
+
+answer = LlamaClient().generate_response(prompt)
+print(f"\nLLM Answer:\n{answer}")

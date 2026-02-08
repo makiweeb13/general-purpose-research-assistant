@@ -8,3 +8,4 @@ langchain-core
 sentence-transformers
 langchain-huggingface
 faiss-cpu
+langchain-ollama
