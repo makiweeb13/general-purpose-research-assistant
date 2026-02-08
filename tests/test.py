@@ -42,3 +42,6 @@ vector_db.load("steins_gate_index")
 query = "What is Steins;Gate about?"
 results = vector_db.query(query)
 print(f"\nTop {len(results)} results for query: '{query}'")
+for i, result in enumerate(results):
+    print(f"\nResult {i+1} content (first 1000 chars):\n{result.page_content[:1000]}")
+    print(f"Metadata: {result.metadata}")

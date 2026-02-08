@@ -5,3 +5,6 @@ lxml
 beautifulsoup4
 langchain-text-splitters
 langchain-core
+sentence-transformers
+langchain-huggingface
+faiss-cpu

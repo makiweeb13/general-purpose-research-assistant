@@ -12,7 +12,10 @@ class VectorDB:
     def build_db(self, documents: list[Document]):
         texts = [doc.page_content for doc in documents]
         embeddings = self.embedder.embed_documents(texts)
-        self.db = FAISS.from_embeddings(embeddings, documents)
+        self.db = FAISS.from_documents(
+            documents=documents,
+            embedding=self.embedder.embeddings
+        )
 
     def save(self, name: str) -> str:
         """Save the FAISS index to data/vectors/{name}"""
@@ -30,7 +33,7 @@ class VectorDB:
         if not load_path.exists():
             raise FileNotFoundError(f"Vector store not found at {load_path}")
         
-        self.db = FAISS.load_local(str(load_path), self.embedder.embeddings)
+        self.db = FAISS.load_local(str(load_path), self.embedder.embeddings, allow_dangerous_deserialization=True)
 
     def query(self, query_text: str, top_k: int = 5) -> list[Document]:
         if not self.db:

@@ -1,4 +1,4 @@
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 class Embedder:
     def __init__(self, model_name: str = "BAAI/bge-base-en-v1.5"):
