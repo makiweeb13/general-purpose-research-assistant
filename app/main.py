@@ -35,7 +35,7 @@ url3 = st.sidebar.text_input("URL 3", placeholder="https://example.com/article3"
 urls = [url for url in [url1, url2, url3] if url.strip()]
 
 # Process button
-if st.sidebar.button("📖 Load & Index Documents"):
+if st.sidebar.button("Load & Index Documents"):
     if not urls:
         st.sidebar.error("Please enter at least one URL")
     else:
@@ -83,7 +83,7 @@ else:
     col1, col2 = st.columns([1, 4])
     
     with col1:
-        generate_btn = st.button("🚀 Generate Answer", use_container_width=True)
+        generate_btn = st.button("Generate Answer", use_container_width=True)
     
     if generate_btn and question.strip():
         with st.spinner("⏳ Retrieving context and generating answer..."):
